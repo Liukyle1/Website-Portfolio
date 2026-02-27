@@ -20,7 +20,7 @@ export const projects: Project[] = [
       "Finalist – Lockheed Martin Innovation Challenge. Embedded navigation system for simulated lunar terrain using sensor fusion and haptic feedback.",
     longDescription:
       "Developed modular C/C++ code to handle communication between multiple sensor modules, improving navigation reliability and real-time feedback in simulated lunar terrain. Integrated gyroscope and accelerometer sensors to track movement and orientation, enabling precise path reconstruction and position correction algorithms. Programmed servo motors for haptic feedback, providing directional guidance cues through vibration or motion to assist astronauts in low-visibility or high-stress conditions. Applied data structures and embedded programming concepts to process sensor data efficiently in real time.",
-    tags: ["C/C++", "Embedded Systems", "Gyroscope", "Servo Motors", "Sensor Fusion"],
+    tags: ["C/C++", "Embedded Systems", "STM32", "Gyroscope", "Servo Motors", "Sensor Fusion"],
     github: "https://github.com",
     status: "completed",
     images: [
@@ -52,9 +52,9 @@ export const projects: Project[] = [
     slug: "dino-nutrition-app",
     title: "Dino Nutrition App",
     description:
-      "Mobile nutrition tracking app for children featuring GPT-powered meal recognition, Supabase PostgreSQL backend, and user authentication.",
+      "Mobile nutrition tracking app for WSU students featuring GPT-powered meal recognition, Supabase PostgreSQL backend, and user authentication. Built as a full-stack developer in a team of 3.",
     longDescription:
-      "Designed and managed the app's Supabase Postgres database, creating schemas, tables, and relationships to support users, meals, and nutrition tracking. Implemented backend logic in JavaScript (Supabase edge functions / API calls) to handle user authentication, meal logging, and nutrition calculations. Fine-tuned a GPT model on custom food and nutrition data so the system could more accurately identify meals, map them to nutrition entries, and suggest corrections for ambiguous inputs.",
+      "Built as a full-stack developer in a team of 3, this app was designed specifically for Wichita State University students to simplify nutrition tracking. Designed and managed the app's Supabase Postgres database, creating schemas, tables, and relationships to support users, meals, and nutrition tracking. Implemented backend logic in JavaScript (Supabase edge functions / API calls) to handle user authentication, meal logging, and nutrition calculations. Fine-tuned a GPT model on custom food and nutrition data so the system could more accurately identify meals, map them to nutrition entries, and suggest corrections for ambiguous inputs.",
     tags: ["JavaScript", "React Native", "Supabase", "PostgreSQL", "GPT API"],
     github: "https://github.com/mustafajamis/Dino-Nutrition-APP-",
     status: "completed",
