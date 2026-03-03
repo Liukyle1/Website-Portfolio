@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 
 const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src);
@@ -27,6 +27,7 @@ export default function ProjectGallery({ images, title }: Props) {
 
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
 
   const next = useCallback(() => {
     setCurrent((c) => (c + 1) % slideCount);
@@ -36,7 +37,7 @@ export default function ProjectGallery({ images, title }: Props) {
     setCurrent((c) => (c - 1 + slideCount) % slideCount);
   }, [slideCount]);
 
-  // Auto-rotate — stops when user clicks an arrow
+  // Auto-rotate — stops when user interacts
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(next, 4000);
@@ -48,8 +49,26 @@ export default function ProjectGallery({ images, title }: Props) {
     fn();
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      setIsPaused(true);
+      diff > 0 ? next() : prev();
+    }
+    touchStartX.current = null;
+  };
+
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[#2a2a45]" style={{ height: "440px" }}>
+    <div
+      className="relative overflow-hidden rounded-2xl border border-[#2a2a45] h-64 md:h-[440px]"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Slides track */}
       <div
         className="flex h-full transition-transform duration-500 ease-in-out"

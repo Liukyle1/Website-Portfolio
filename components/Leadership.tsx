@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 const isVideo = (src: string) => /\.(mp4|webm|mov)$/i.test(src);
 
@@ -57,6 +57,7 @@ function MiniGallery({ images }: { images: string[] }) {
 
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
 
   const next = useCallback(() => {
     setCurrent((c) => (c + 1) % slideCount);
@@ -77,8 +78,27 @@ function MiniGallery({ images }: { images: string[] }) {
     fn();
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      setIsPaused(true);
+      diff > 0 ? next() : prev();
+    }
+    touchStartX.current = null;
+  };
+
   return (
-    <div className="relative overflow-hidden rounded-xl border border-[#2a2a45]" style={{ height: "180px" }}>
+    <div
+      className="relative overflow-hidden rounded-xl border border-[#2a2a45]"
+      style={{ height: "180px" }}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Slides track */}
       <div
         className="flex h-full transition-transform duration-500 ease-in-out"
@@ -101,7 +121,7 @@ function MiniGallery({ images }: { images: string[] }) {
                 <img
                   src={images[i]}
                   alt={`Photo ${i + 1}`}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                 />
               )
             ) : (
