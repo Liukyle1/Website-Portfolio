@@ -23,7 +23,7 @@ const leadershipItems: LeadershipItem[] = [
       "Planned and executed large-scale cultural events for Wichita State's Vietnamese Student Association, coordinating volunteer teams, vendor logistics, venue arrangements, and marketing across a full academic year. Managed cross-functional planning teams and stakeholder communication to deliver consistently well-attended programs that celebrated cultural identity and built campus community.",
     impact: "50+ attendees",
     images: [
-      "/leadership/vsa/DSC07368.JPEG",
+      "/leadership/vsa/DSC07368.jpeg",
       "/leadership/vsa/IMG_0017.jpeg",
       "/leadership/vsa/IMG_0562.jpeg",
       "/leadership/vsa/IMG_1343.jpeg",
@@ -38,8 +38,8 @@ const leadershipItems: LeadershipItem[] = [
       "Mentored and guided members while coordinating workshops and training to support professional and technical development. Worked across multiple groups to plan and execute organizational strategies, demonstrating collaboration and communication at every level.",
     images: [
       "/leadership/chi-sigma-tau/IMG_0069.jpeg",
-      "/leadership/chi-sigma-tau/IMG_1489.JPG",
-      "/leadership/chi-sigma-tau/IMG_2048.JPG",
+      "/leadership/chi-sigma-tau/IMG_1489.jpg",
+      "/leadership/chi-sigma-tau/IMG_2048.jpg",
       "/leadership/chi-sigma-tau/IMG_5030.jpeg",
     ],
   },

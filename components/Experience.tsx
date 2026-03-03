@@ -16,13 +16,14 @@ const experiences: ExperienceItem[] = [
     role: "QA Automation Engineer",
     company: "National Institute for Aviation Research (NIAR)",
     location: "Wichita, KS",
-    dates: "Jan 2022 – Feb 2024",
+    dates: "Oct 2025 – Present",
     type: "full-time",
     bullets: [
-      "Automated data entry workflows for aerospace part manufacturing, cutting manual input time by 40% and reducing data entry errors by 30%.",
+      "Automated data entry workflows for aerospace part manufacturing using C# and SQL, cutting manual input time by 40% and reducing data entry errors by 30%.",
+      "Handled data management for customer entry and work order management, ensuring accurate records across manufacturing operations.",
       "Delivered dashboards and metric summaries (throughput, rejection rates, rework rates) that helped leadership improve on-time completion of machining jobs by 15%.",
     ],
-    skills: ["Automation", "Data Analysis", "Dashboards", "Aerospace", "QA"],
+    skills: ["C#", "SQL", "Automation", "Data Management", "Dashboards", "Aerospace", "QA"],
   },
   {
     role: "Assembly Mechanic",
