@@ -72,10 +72,10 @@ export default function ProjectGallery({ images, title }: Props) {
       {/* Slides track */}
       <div
         className="flex h-full transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${current * 100}%)` }}
+        style={{ width: `${slideCount * 100}%`, transform: `translateX(-${current * (100 / slideCount)}%)` }}
       >
         {Array.from({ length: slideCount }).map((_, i) => (
-          <div key={i} className="min-w-full h-full flex-shrink-0 relative">
+          <div key={i} className="h-full relative" style={{ width: `${100 / slideCount}%` }}>
             {!isPlaceholder ? (
               isYouTube(images[i]) ? (
                 <iframe
